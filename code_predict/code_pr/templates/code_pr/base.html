@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="LokinSethia" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700"
+      rel="stylesheet"
+    />
+
+    <title>Coding Platform</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="{% static 'code_pr/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'code_pr/css/fontawesome.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'code_pr/css/templatemo-host-cloud.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'code_pr/css/owl.css' %}" />
+  </head>
+
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="home"
+            ><h2>Code <em>Platform</em></h2></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Go Code</a>
+              </li>
+            </ul>
+          </div>
+          <div class="functional-buttons">
+            <ul>
+              <li><a href="#">Log in</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container-fluid" style="padding: 0">
+      <div class="row">
+        <div class="col-md-12">
+          {% if messages %} {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %} {% endif %} {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+    <!-- Footer Starts Here -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>About Us</h2>
+              </div>
+              <p>A coding platform powered by AI</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>Useful Links</h2>
+              </div>
+              <ul class="footer-list">
+                <li><a href="#">Python</a></li>
+                <li><a href="#">C++</a></li>
+                <li><a href="#">Java</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>More Information</h2>
+              </div>
+              <ul class="footer-list">
+                <li>Phone: <a href="#">010-020-0560</a></li>
+                <li>Email: <a href="#">lokinsethia@gmail.com</a></li>
+                <li>Website: <a href="#">www.lokin.dev</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="sub-footer">
+              <p>
+                Copyright &copy; 2020 Lokin Sethia - Designed by
+                <a rel="nofollow" href="https://lokin.dev">Lokin Sethia</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Ends Here -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'code_pr/js/jquery.min.js' %}"></script>
+    <script src="{% static 'code_pr/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'code_pr/js/custom.js' %}"></script>
+    <script src="{% static 'code_pr/js/owl.js' %}"></script>
+    <script src="{% static 'code_pr/js/accordions.js' %}"></script>
+  </body>
+</html>

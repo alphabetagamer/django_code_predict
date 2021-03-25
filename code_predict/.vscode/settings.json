@@ -1,0 +1,35 @@
+{
+    "auto-close-tag.activationOnLanguage": [
+        "xml",
+        "php",
+        "blade",
+        "ejs",
+        "jinja",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "plaintext",
+        "markdown",
+        "vue",
+        "liquid",
+        "erb",
+        "lang-cfml",
+        "cfml",
+        "HTML (EEx)",
+        "HTML (Eex)",
+        "plist"
+    ],
+    "emmet.includeLanguages": {
+        "django-html": "html",
+        "jinja-html": "html"
+    },
+    "django.snippets.exclude": [
+
+        "cms",
+        "wagtail"
+    ],
+    "html.format.templating": true,
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black"
+}
