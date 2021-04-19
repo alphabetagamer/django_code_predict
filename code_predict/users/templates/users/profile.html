@@ -1,0 +1,19 @@
+{% extends 'code_pr/base.html' %} 
+{% block content%}
+<div class="page-heading header-text">
+  <div class="container">
+    <div class="row justify-content-center">
+  <div class="col-md-8 col-sm-12" style="text-align: left;color:white">
+  <h2>Progress for {{ user }}</h2>
+  {% if progress %}
+  {% for prog in progress %}
+  <p><a href="{% url 'problem' id=prog.id %}">{{ prog.title }}</a> : {{prog.status}}</p>
+  {%endfor%}
+  {%else%}
+  <h2> Get to Speed Buddy , Start Practicing today</h2>
+  {%endif%}
+  </div>
+</div>
+</div>
+</div>
+{% endblock content %}

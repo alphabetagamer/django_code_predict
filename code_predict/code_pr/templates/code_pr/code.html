@@ -12,7 +12,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ code.name }}</h5>
                   <p class="card-text" style='color:black'>{{ code.desc }}</p>
-                  <a href="/" class="btn btn-primary">Go code!</a>
+                  <a href="{% url 'problem' id=code.id %}" class="btn btn-primary">Go code!</a>
                 </div>
               </div>
           </div>
