@@ -62,7 +62,10 @@ def problem(request, id=-1):
 
 ### Sanvi code
 def code_check(input_request):
-    if input_request["questionType"] == "typecastingstring":
+    if (
+        input_request["questionType"] == "typecastingstring"
+        or input_request["questionType"] == "Typecast Integer to String"
+    ):
         try:
             assert input_request["answer"].find("str(3)") > -1
         except Exception as e:

@@ -51,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "code_predict.urls"
@@ -128,3 +129,4 @@ CRIPSY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = "site-home"
 
 LOGIN_URL = "register"
+STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
