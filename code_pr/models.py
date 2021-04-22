@@ -7,6 +7,7 @@ class code_page(models.Model):
     lang = models.CharField(choices=langs, default="Python", max_length=255)
     title = models.CharField(max_length=255)
     desc = models.TextField()
+    content = models.CharField(max_length=255, default="http://www.google.com")
 
     def __str__(self):
         return self.title

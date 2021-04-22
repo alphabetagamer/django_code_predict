@@ -1,26 +1,38 @@
 {% extends 'code_pr/base.html' %}
 {% load static %}
-{% block content%}
+{% block content %}
     <!-- Banner Starts Here -->
     <div class="banner header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-8 offset-md-2">
             <div class="header-text caption">
-              <h2>Search your domain</h2>
+              <h2>Search Questions</h2>
               <div id="search-section">
-              	<form id="suggestion_form" name="gs" method="get" action="#">
+              	<form id="suggestion_form" name="gs" method="POST">
+                  {% csrf_token %}
                 <div class="searchText">
                   
-                  <input type="text" name="q" class="searchText" placeholder="Enter your domain here..." autocomplete="on">
+                  <input type="text" name="query" class="searchText" placeholder="Learn something new..." autocomplete="on">
                 </div>
-                    <input type="submit" name="results" class="main-button" value="Search Now">
+                    <input type="submit" class="main-button" value="Search Now">
                  </form>
                <div class="advSearch_chkbox">
                </div>
               </div>
+              
             </div>
           </div>
+          {% if result %}
+              {% for res in result %}
+              
+              <div class='col-md-8 offset-md-2' style="background-color: white;padding: 1em;">
+                <h5>Problem : <a href="{% url 'problem' id=res.id %}" style="color:blue;">{{ res.title }}</a></h5>
+                <p>Description : {{ res.desc }}</p>
+              </div>
+            
+              {% endfor %}
+              {% endif %}
         </div>
       </div>
     </div>
