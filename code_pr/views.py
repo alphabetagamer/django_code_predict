@@ -117,7 +117,6 @@ def problem(request, id=-1):
             return render(request, "code_pr/problem_page.html", context)
 
 
-### Sanvi code
 def code_check(input_request):
     if (
         input_request["questionType"] == "typecastingstring"
@@ -136,7 +135,7 @@ def code_check(input_request):
         return "correct answer"
     elif input_request["questionType"] == "Length Of List":
         try:
-            assert input_request["answer"].find("len(inlist)".lower()) > -1
+            assert input_request["answer"].find("len(".lower()) > -1
         except Exception as e:
             return "to check the length of the list we should use len(input) function"
         return "correct answer"
