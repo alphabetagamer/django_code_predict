@@ -3,3 +3,4 @@ django-crispy-forms
 whitenoise
 gunicorn
 dj-database-url
+psycopg2
