@@ -4,6 +4,8 @@ from .models import code_page, progress
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 import pickle
+import os
+import re
 
 
 def home(request):
@@ -124,7 +126,7 @@ def code_check(input_request):
         or input_request["questionType"] == "Typecast Integer to String"
     ):
         try:
-            assert input_request["answer"].find("str(3)") > -1
+            assert len(re.findall("(str\()+[0-9]*?", input_request["answer"])) > 0
         except Exception as e:
             return "to typecast any integer to string in python, we should use str(input), so instead write str(3)"
         return "correct answer"
@@ -191,19 +193,25 @@ def code_check(input_request):
             return "to access value of particular key in dictionary write it as dictionaryname[key]"
     elif input_request["questionType"] == "Pattern":
         try:
-            f = open("randomforestmodel.pickle", "rb")
+            module_dir = os.path.dirname(__file__)  # get current directory
+            file_path = os.path.join(module_dir, "randomforestmodel.pickle")
+            f = open(file_path, "rb")
             model = pickle.load(f)
             f.close()
-            f = open("tfidfvec.pickle", "rb")
+            file_path = os.path.join(module_dir, "tfidfvec.pickle")
+            f = open(file_path, "rb")
             tf_model = pickle.load(f)
             f.close()
             vectorizer = tf_model
             test_data = input_request["answer"]
-            test_data.replace("\n", " ")
+            test_data = test_data.replace("\n", " ")
+            print(test_data)
             test = vectorizer.transform([test_data])
             prediction = model.predict(test)
             if prediction[0] != 0:
                 return "For this pattern we need two for loops ,\n 1: 0 to n \n 2: 0 to i+1 use end='' while printing"
         except Exception as e:
+            print(e)
             return "Error in compiling"
+
         return "correct answer"
