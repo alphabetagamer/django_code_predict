@@ -11,7 +11,7 @@
                 <h5 class="card-header">{{code.lang}}</h5>
                 <div class="card-body">
                   <h5 class="card-title">{{ code.name }}</h5>
-                  <p class="card-text" style='color:black'>{{ code.desc }}</p>
+                  <p class="card-text" style='color:black'><pre>{{ code.desc }}</pre></p>
                   <a href="{% url 'problem' id=code.id %}" class="btn btn-primary">Go code!</a>
                 </div>
               </div>
