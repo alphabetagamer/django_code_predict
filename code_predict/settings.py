@@ -87,6 +87,7 @@ DATABASES = {
 }
 import dj_database_url
 
+# We use this package to help us connect to the Heroku DB instance.
 db_env = dj_database_url.config(conn_max_age=600)
 DATABASES["default"].update(db_env)
 

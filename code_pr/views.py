@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import code_page, progress
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+import pickle
 
 
 def home(request):
@@ -188,4 +189,21 @@ def code_check(input_request):
             )
         except Exception as e:
             return "to access value of particular key in dictionary write it as dictionaryname[key]"
+    elif input_request["questionType"] == "Pattern":
+        try:
+            f = open("randomforestmodel.pickle", "rb")
+            model = pickle.load(f)
+            f.close()
+            f = open("tfidfvec.pickle", "rb")
+            tf_model = pickle.load(f)
+            f.close()
+            vectorizer = tf_model
+            test_data = input_request["answer"]
+            test_data.replace("\n", " ")
+            test = vectorizer.transform([test_data])
+            prediction = model.predict(test)
+            if prediction[0] != 0:
+                return "For this pattern we need two for loops ,\n 1: 0 to n \n 2: 0 to i+1 use end='' while printing"
+        except Exception as e:
+            return "Error in compiling"
         return "correct answer"
